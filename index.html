@@ -10,19 +10,88 @@
 </head>
 
 <body>
-  <div id="toggle"></div>
-  <div id="sidebar">
+  <header>
+    <a href="#" class="logo">Products.</a>
     <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#team">Team</a></li>
-      <li><a href="#portifolio">Portifolio</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Store</a></li>
+      <li><a href="#">Contact</a></li>
     </ul>
-  </div>
+  </header>
 
-  <script src="close.js"></script>
+  <section class="banner">
+    <div class="imgBx">
+      <img src="img1.jpg" class="active">
+      <img src="img2.jpg">
+      <img src="img3.jpg">
+      <img src="img4.jpg">
+    </div>
+
+    <div class="contentBx">
+      <div class="active">
+        <h2>Slide text one</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, vitae quaerat! Labore facere dolorum recusandae laudantium odio beatae inventore optio corporis neque perspiciatis, vel voluptate suscipit explicabo delectus dolore eveniet?</p>
+        <a href="#">Details</a>
+      </div>
+      <div>
+        <h2>Slide text two</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, vitae quaerat! Labore facere dolorum recusandae laudantium odio beatae inventore optio corporis neque perspiciatis, vel voluptate suscipit explicabo delectus dolore eveniet?</p>
+        <a href="#">Details</a>
+      </div>
+      <div>
+        <h2>Slide text three</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, vitae quaerat! Labore facere dolorum recusandae laudantium odio beatae inventore optio corporis neque perspiciatis, vel voluptate suscipit explicabo delectus dolore eveniet?</p>
+        <a href="#">Details</a>
+      </div>
+      <div>
+        <h2>Slide text four</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, vitae quaerat! Labore facere dolorum recusandae laudantium odio beatae inventore optio corporis neque perspiciatis, vel voluptate suscipit explicabo delectus dolore eveniet?</p>
+        <a href="#">Details</a>
+      </div>
+    </div>
+
+    <ul class="controls">
+      <li onclick="prevSlide(); prevSlideText();"></li>
+      <li onclick="nextSlide(); nextSlideText();"></li>
+    </ul>
+  </section>  
+
+  <script>
+    const imgBx = document.querySelector('.imgBx')
+    const slides = imgBx.getElementsByTagName('img')
+    let i = 0 
+
+    function nextSlide(){
+      slides[i].classList.remove('active')
+      i = (i + 1) % slides.length
+      slides[i].classList.add('active')
+    }
+
+    function prevSlide(){
+      slides[i].classList.remove('active')
+      i = (i - 1 + slides.length) % slides.length
+      slides[i].classList.add('active')
+    }
+
+    const contentBx = document.querySelector('.contentBx')
+    const slidesText = contentBx.getElementsByTagName('div')
+    let j = 0 
+
+    function nextSlideText(){
+      slidesText[j].classList.remove('active')
+      j = (j + 1) % slidesText.length 
+      slidesText[j].classList.add('active')
+    }
+
+    function prevSlideText(){
+      slidesText[j].classList.remove('active')
+      j = (j - 1 + slidesText.length) % slidesText.length
+      slidesText[j].classList.add('active')
+    }
+
+
+  </script>
+
 </body>
-
 </html>
